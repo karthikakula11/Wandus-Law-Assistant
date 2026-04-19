@@ -1,0 +1,55 @@
+# Postgres 16 + pgvector + optional FastAPI API.
+# DB only: docker compose up -d db
+# Full stack: docker compose --profile full up -d --build
+
+services:
+  api:
+    profiles: ["full"]
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: lawchat-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-lawchat}
+      OPENSEARCH_URL: http://opensearch:9200
+    depends_on:
+      - db
+      - opensearch
+
+  opensearch:
+    # 2.11 lacks score-ranker-processor (RRF hybrid pipeline); use 2.19+ per OpenSearch hybrid/RRF docs.
+    image: opensearchproject/opensearch:2.19.5
+    container_name: lawchat-opensearch
+    restart: unless-stopped
+    environment:
+      - discovery.type=single-node
+      - plugins.security.disabled=true
+      - DISABLE_INSTALL_DEMO_CONFIG=true
+      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "${OPENSEARCH_PORT:-9200}:9200"
+
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: lawchat-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-lawchat}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/init:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  pgdata:

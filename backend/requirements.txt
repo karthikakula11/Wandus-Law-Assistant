@@ -1,0 +1,40 @@
+# Core API
+fastapi>=0.115.0
+python-multipart>=0.0.17
+uvicorn[standard]>=0.32.0
+pydantic-settings>=2.6.0
+python-dotenv>=1.0.0
+
+# DB
+asyncpg>=0.30.0
+sqlalchemy[asyncio]>=2.0.36
+alembic>=1.14.0
+psycopg2-binary>=2.9.10
+pgvector>=0.3.6
+
+# AI
+openai>=1.57.0
+tiktoken>=0.7.0
+# Optional: free local embeddings for long-term memory (MEMORY_EMBEDDING_PROVIDER=sentence_transformers)
+sentence-transformers>=3.0.0
+pymupdf>=1.24.0
+# Docling pulls torch + OpenCV. NumPy 2.x breaks PyTorch 2.2 wheels (_ARRAY_API). OpenCV 4.12+ wants NumPy 2.
+# PyTorch 2.4+ is Python 3.11+ on PyPI; on 3.10 keep torch 2.2.x + NumPy 1.26 + OpenCV 4.9.
+numpy>=1.26.0,<2.0
+opencv-python==4.9.0.80
+opencv-python-headless==4.9.0.80
+# Jam with AI course PDF stack (optional heavy deps; falls back to PyMuPDF if import fails)
+docling>=2.20.0
+httpx>=0.28.0
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langfuse>=2.54.0
+# LangChain Graph.draw_ascii() (grandalf layout)
+grandalf>=0.8
+
+# Drift detection (KS test on retrieval confidence samples)
+scipy>=1.11.0
+
+# Tests
+pytest>=8.3.0
+pytest-asyncio>=0.24.0

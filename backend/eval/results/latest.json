@@ -1,0 +1,351 @@
+{
+  "generated_at": "2026-04-18T11:10:46.761972+00:00",
+  "benchmark_file": "eval/data/benchmark.json",
+  "settings_note": "Uses current .env (e.g. HYBRID_RAG_ENABLED, USE_LANGGRAPH_AGENT).",
+  "openai_chat_model": "gpt-4o-mini",
+  "top_k": 10,
+  "n_evaluated": 2,
+  "basic": {
+    "recall_at_k_mean": 1.0,
+    "description": "Single-query dense retrieval (retrieve_chunks)"
+  },
+  "agentic": {
+    "recall_at_k_mean": 1.0,
+    "description": "LangGraph agent: plan \u2192 retrieve \u2192 grade \u2192 \u2026 \u2192 generate (final retrieval)"
+  },
+  "per_question": [
+    {
+      "id": "sc_civil_appeal_header",
+      "question": "Were Civil Appeal Nos 10866-10867 of 2010 filed in the Supreme Court of India, and what jurisdiction is stated in the opening of the judgment?",
+      "gold_chunk_ids": [
+        "7ae5f678-5c8c-4625-958f-5b84a5bc6438"
+      ],
+      "basic_retrieved_ids": [
+        "bfadac7a-a806-4cfb-ae24-3dde6b3a73bc",
+        "3a6e949b-0c50-4e3e-820d-45392e24c7c8",
+        "7ae5f678-5c8c-4625-958f-5b84a5bc6438",
+        "779e641c-c8c6-4be6-a5fc-d862ab56cec2",
+        "07f76e4b-6eff-422a-afe4-3587ec711695",
+        "f9e8e474-b8c0-4c81-a87b-a5f24f4a9606",
+        "1805eac4-e0fa-4cb6-8110-040fb050bf7c",
+        "1e3e5bee-002f-4ae3-86b7-4e47cc23b046",
+        "60f4d109-340f-4290-8801-7154f1935448",
+        "a8d184e1-eb4e-4399-9cef-b86e76473e25"
+      ],
+      "basic_recall_hit": true,
+      "basic_retrieval_chunks": [
+        {
+          "chunk_id": "bfadac7a-a806-4cfb-ae24-3dde6b3a73bc",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "0",
+          "excerpt": "1  REPORTABLE  IN THE SUPREME COURT OF INDIA  CIVIL APPELLATE JURISDICTION  Civil Appeal Nos  10866-10867 of 2010  M Siddiq (D) Thr Lrs                                                               \u2026Appellants                                                            Versus  Mahant Suresh Das & Ors                                                          \u2026Respondents  WITH  Civil Appeal Nos 4768-4771/2011  WITH  Civil Appeal No 2636/2011  WITH   Civil Appeal No 821/2011  WI\u2026"
+        },
+        {
+          "chunk_id": "3a6e949b-0c50-4e3e-820d-45392e24c7c8",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "0",
+          "excerpt": "1  REPORTABLE  IN THE SUPREME COURT OF INDIA  CIVIL APPELLATE JURISDICTION  Civil Appeal Nos  10866-10867 of 2010  M Siddiq (D) Thr Lrs                                                               \u2026Appellants                                                            Versus  Mahant Suresh Das & Ors                                                          \u2026Respondents  WITH  Civil Appeal Nos 4768-4771/2011  WITH  Civil Appeal No 2636/2011  WITH   Civil Appeal No 821/2011  WI\u2026"
+        },
+        {
+          "chunk_id": "7ae5f678-5c8c-4625-958f-5b84a5bc6438",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "0",
+          "excerpt": "1  REPORTABLE  IN THE SUPREME COURT OF INDIA  CIVIL APPELLATE JURISDICTION  Civil Appeal Nos  10866-10867 of 2010  M Siddiq (D) Thr Lrs                                                               \u2026Appellants                                                            Versus  Mahant Suresh Das & Ors                                                          \u2026Respondents  WITH  Civil Appeal Nos 4768-4771/2011  WITH  Civil Appeal No 2636/2011  WITH   Civil Appeal No 821/2011  WI\u2026"
+        },
+        {
+          "chunk_id": "779e641c-c8c6-4be6-a5fc-d862ab56cec2",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "42",
+          "excerpt": "appeals against the impugned  judgement for hearing.  32.  By an administrative order dated 8 January 2019 made pursuant to the  provisions of Order VI Rule 1 of the Supreme Court Rules, 2013, the Chief  Justice of India constituted a five judge Bench to hear the appeals. On 10  January 2019, the Registry was directed to inspect the records and if required,  engage official translators. On 26 February 2019, this Court referred the parties  to a Court appointed and monitored \u2026"
+        },
+        {
+          "chunk_id": "07f76e4b-6eff-422a-afe4-3587ec711695",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "42",
+          "excerpt": "appeals against the impugned  judgement for hearing.  32.  By an administrative order dated 8 January 2019 made pursuant to the  provisions of Order VI Rule 1 of the Supreme Court Rules, 2013, the Chief  Justice of India constituted a five judge Bench to hear the appeals. On 10  January 2019, the Registry was directed to inspect the records and if required,  engage official translators. On 26 February 2019, this Court referred the parties  to a Court appointed and monitored \u2026"
+        },
+        {
+          "chunk_id": "f9e8e474-b8c0-4c81-a87b-a5f24f4a9606",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "42",
+          "excerpt": "appeals against the impugned  judgement for hearing.  32.  By an administrative order dated 8 January 2019 made pursuant to the  provisions of Order VI Rule 1 of the Supreme Court Rules, 2013, the Chief  Justice of India constituted a five judge Bench to hear the appeals. On 10  January 2019, the Registry was directed to inspect the records and if required,  engage official translators. On 26 February 2019, this Court referred the parties  to a Court appointed and monitored \u2026"
+        },
+        {
+          "chunk_id": "1805eac4-e0fa-4cb6-8110-040fb050bf7c",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "860",
+          "excerpt": "on their part and  I am further of opinion that Civil Courts have properly  dismissed the plaintiff's claim.   The pleas on appeal to this \u2026 are wholly unsupported by  facts in the case or by any document that appears to me \u2026  some of the reasoning of the Lower Appellant Court as to the  limitations of the Civil Court jurisdiction. However I approve of  their final conclusion to which it has come \u2013 and I see no  reason to interfere with its order modifying the wording of par\u2026"
+        },
+        {
+          "chunk_id": "1e3e5bee-002f-4ae3-86b7-4e47cc23b046",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "860",
+          "excerpt": "on their part and  I am further of opinion that Civil Courts have properly  dismissed the plaintiff's claim.   The pleas on appeal to this \u2026 are wholly unsupported by  facts in the case or by any document that appears to me \u2026  some of the reasoning of the Lower Appellant Court as to the  limitations of the Civil Court jurisdiction. However I approve of  their final conclusion to which it has come \u2013 and I see no  reason to interfere with its order modifying the wording of par\u2026"
+        },
+        {
+          "chunk_id": "60f4d109-340f-4290-8801-7154f1935448",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "860",
+          "excerpt": "on their part and  I am further of opinion that Civil Courts have properly  dismissed the plaintiff's claim.   The pleas on appeal to this \u2026 are wholly unsupported by  facts in the case or by any document that appears to me \u2026  some of the reasoning of the Lower Appellant Court as to the  limitations of the Civil Court jurisdiction. However I approve of  their final conclusion to which it has come \u2013 and I see no  reason to interfere with its order modifying the wording of par\u2026"
+        },
+        {
+          "chunk_id": "a8d184e1-eb4e-4399-9cef-b86e76473e25",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "41",
+          "excerpt": "r 2015 and 11  August 2017, this Court issued directions for summoning the digital record of the  evidence and pleadings from the Allahabad High Court and for furnishing  translated copies to the parties. On 10 August 2015, a three judge Bench of this  Court allowed the Commissioner, Faizabad Division to replace the old and worn  out tarpaulin sheets over the makeshift structure under which the idols were  placed with new sheets of the same size and quality.  31.  On 5 Decem\u2026"
+        }
+      ],
+      "agentic_retrieved_ids": [
+        "bfadac7a-a806-4cfb-ae24-3dde6b3a73bc",
+        "3a6e949b-0c50-4e3e-820d-45392e24c7c8",
+        "7ae5f678-5c8c-4625-958f-5b84a5bc6438",
+        "779e641c-c8c6-4be6-a5fc-d862ab56cec2",
+        "07f76e4b-6eff-422a-afe4-3587ec711695",
+        "f9e8e474-b8c0-4c81-a87b-a5f24f4a9606",
+        "1805eac4-e0fa-4cb6-8110-040fb050bf7c",
+        "1e3e5bee-002f-4ae3-86b7-4e47cc23b046",
+        "60f4d109-340f-4290-8801-7154f1935448",
+        "867e54ee-b7dd-4307-bf91-f5cadfead5b9"
+      ],
+      "agentic_recall_hit": true,
+      "agentic_retrieval_chunks": [
+        {
+          "chunk_id": "bfadac7a-a806-4cfb-ae24-3dde6b3a73bc",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "0",
+          "excerpt": "1  REPORTABLE  IN THE SUPREME COURT OF INDIA  CIVIL APPELLATE JURISDICTION  Civil Appeal Nos  10866-10867 of 2010  M Siddiq (D) Thr Lrs                                                               \u2026Appellants                                                            Versus  Mahant Suresh Das & Ors                                                          \u2026Respondents  WITH  Civil Appeal Nos 4768-4771/2011  WITH  Civil Appeal No 2636/2011  WITH   Civil Appeal No 821/2011  WI\u2026"
+        },
+        {
+          "chunk_id": "3a6e949b-0c50-4e3e-820d-45392e24c7c8",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "0",
+          "excerpt": "1  REPORTABLE  IN THE SUPREME COURT OF INDIA  CIVIL APPELLATE JURISDICTION  Civil Appeal Nos  10866-10867 of 2010  M Siddiq (D) Thr Lrs                                                               \u2026Appellants                                                            Versus  Mahant Suresh Das & Ors                                                          \u2026Respondents  WITH  Civil Appeal Nos 4768-4771/2011  WITH  Civil Appeal No 2636/2011  WITH   Civil Appeal No 821/2011  WI\u2026"
+        },
+        {
+          "chunk_id": "7ae5f678-5c8c-4625-958f-5b84a5bc6438",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "0",
+          "excerpt": "1  REPORTABLE  IN THE SUPREME COURT OF INDIA  CIVIL APPELLATE JURISDICTION  Civil Appeal Nos  10866-10867 of 2010  M Siddiq (D) Thr Lrs                                                               \u2026Appellants                                                            Versus  Mahant Suresh Das & Ors                                                          \u2026Respondents  WITH  Civil Appeal Nos 4768-4771/2011  WITH  Civil Appeal No 2636/2011  WITH   Civil Appeal No 821/2011  WI\u2026"
+        },
+        {
+          "chunk_id": "779e641c-c8c6-4be6-a5fc-d862ab56cec2",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "42",
+          "excerpt": "appeals against the impugned  judgement for hearing.  32.  By an administrative order dated 8 January 2019 made pursuant to the  provisions of Order VI Rule 1 of the Supreme Court Rules, 2013, the Chief  Justice of India constituted a five judge Bench to hear the appeals. On 10  January 2019, the Registry was directed to inspect the records and if required,  engage official translators. On 26 February 2019, this Court referred the parties  to a Court appointed and monitored \u2026"
+        },
+        {
+          "chunk_id": "07f76e4b-6eff-422a-afe4-3587ec711695",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "42",
+          "excerpt": "appeals against the impugned  judgement for hearing.  32.  By an administrative order dated 8 January 2019 made pursuant to the  provisions of Order VI Rule 1 of the Supreme Court Rules, 2013, the Chief  Justice of India constituted a five judge Bench to hear the appeals. On 10  January 2019, the Registry was directed to inspect the records and if required,  engage official translators. On 26 February 2019, this Court referred the parties  to a Court appointed and monitored \u2026"
+        },
+        {
+          "chunk_id": "f9e8e474-b8c0-4c81-a87b-a5f24f4a9606",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "42",
+          "excerpt": "appeals against the impugned  judgement for hearing.  32.  By an administrative order dated 8 January 2019 made pursuant to the  provisions of Order VI Rule 1 of the Supreme Court Rules, 2013, the Chief  Justice of India constituted a five judge Bench to hear the appeals. On 10  January 2019, the Registry was directed to inspect the records and if required,  engage official translators. On 26 February 2019, this Court referred the parties  to a Court appointed and monitored \u2026"
+        },
+        {
+          "chunk_id": "1805eac4-e0fa-4cb6-8110-040fb050bf7c",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "860",
+          "excerpt": "on their part and  I am further of opinion that Civil Courts have properly  dismissed the plaintiff's claim.   The pleas on appeal to this \u2026 are wholly unsupported by  facts in the case or by any document that appears to me \u2026  some of the reasoning of the Lower Appellant Court as to the  limitations of the Civil Court jurisdiction. However I approve of  their final conclusion to which it has come \u2013 and I see no  reason to interfere with its order modifying the wording of par\u2026"
+        },
+        {
+          "chunk_id": "1e3e5bee-002f-4ae3-86b7-4e47cc23b046",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "860",
+          "excerpt": "on their part and  I am further of opinion that Civil Courts have properly  dismissed the plaintiff's claim.   The pleas on appeal to this \u2026 are wholly unsupported by  facts in the case or by any document that appears to me \u2026  some of the reasoning of the Lower Appellant Court as to the  limitations of the Civil Court jurisdiction. However I approve of  their final conclusion to which it has come \u2013 and I see no  reason to interfere with its order modifying the wording of par\u2026"
+        },
+        {
+          "chunk_id": "60f4d109-340f-4290-8801-7154f1935448",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "860",
+          "excerpt": "on their part and  I am further of opinion that Civil Courts have properly  dismissed the plaintiff's claim.   The pleas on appeal to this \u2026 are wholly unsupported by  facts in the case or by any document that appears to me \u2026  some of the reasoning of the Lower Appellant Court as to the  limitations of the Civil Court jurisdiction. However I approve of  their final conclusion to which it has come \u2013 and I see no  reason to interfere with its order modifying the wording of par\u2026"
+        },
+        {
+          "chunk_id": "867e54ee-b7dd-4307-bf91-f5cadfead5b9",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "41",
+          "excerpt": "r 2015 and 11  August 2017, this Court issued directions for summoning the digital record of the  evidence and pleadings from the Allahabad High Court and for furnishing  translated copies to the parties. On 10 August 2015, a three judge Bench of this  Court allowed the Commissioner, Faizabad Division to replace the old and worn  out tarpaulin sheets over the makeshift structure under which the idols were  placed with new sheets of the same size and quality.  31.  On 5 Decem\u2026"
+        }
+      ],
+      "agentic_trace": [
+        "plan",
+        "retrieve",
+        "grade",
+        "generate"
+      ]
+    },
+    {
+      "id": "babur_justice_agarwal",
+      "question": "What did Justice Sudhir Agarwal observe about Babur as Emperor in this judgment?",
+      "gold_chunk_ids": [
+        "0d4be8ad-02a6-4b32-9a2f-ad9c1b5dc4a9"
+      ],
+      "basic_retrieved_ids": [
+        "4b372315-62fa-4136-bf73-a9599abfd190",
+        "0d4be8ad-02a6-4b32-9a2f-ad9c1b5dc4a9",
+        "d169f270-86bb-47d4-b48f-a5e42640ce75",
+        "8c654d28-a394-4dd8-a9a1-fd6a2c61432c",
+        "28b74ca6-df0e-48ae-912d-2351545a4570",
+        "dd8e5863-c333-41c6-978f-fbe7283ae1f3",
+        "d2c88eb4-092e-4585-aac2-3ef27c6cfc80",
+        "84352598-1fe2-40f0-8cfd-05bf9cf25661",
+        "1c77f311-591b-4299-b796-cc867649b100",
+        "4ea2b2ac-8a3b-470c-b652-58fcc3ea1308"
+      ],
+      "basic_recall_hit": true,
+      "basic_retrieval_chunks": [
+        {
+          "chunk_id": "4b372315-62fa-4136-bf73-a9599abfd190",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "181",
+          "excerpt": "lectively relied upon certain aspects of the  Hadees without reading the religious texts in their context and as a whole.  74.  Justice Sudhir Agarwal observed that Babur, as the Emperor, had absolute  power as an independent sovereign:  \u20153389\u2026The position of Babar, in our view, was that of  independent sovereign, Sole Monarch, having paramount  power. It was supreme, uncontrollable and absolute, not  answerable to anyone. Whether invader or anything else, the  fact remains \u2026"
+        },
+        {
+          "chunk_id": "0d4be8ad-02a6-4b32-9a2f-ad9c1b5dc4a9",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "181",
+          "excerpt": "lectively relied upon certain aspects of the  Hadees without reading the religious texts in their context and as a whole.  74.  Justice Sudhir Agarwal observed that Babur, as the Emperor, had absolute  power as an independent sovereign:  \u20153389\u2026The position of Babar, in our view, was that of  independent sovereign, Sole Monarch, having paramount  power. It was supreme, uncontrollable and absolute, not  answerable to anyone. Whether invader or anything else, the  fact remains \u2026"
+        },
+        {
+          "chunk_id": "d169f270-86bb-47d4-b48f-a5e42640ce75",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "181",
+          "excerpt": "lectively relied upon certain aspects of the  Hadees without reading the religious texts in their context and as a whole.  74.  Justice Sudhir Agarwal observed that Babur, as the Emperor, had absolute  power as an independent sovereign:  \u20153389\u2026The position of Babar, in our view, was that of  independent sovereign, Sole Monarch, having paramount  power. It was supreme, uncontrollable and absolute, not  answerable to anyone. Whether invader or anything else, the  fact remains \u2026"
+        },
+        {
+          "chunk_id": "8c654d28-a394-4dd8-a9a1-fd6a2c61432c",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "158",
+          "excerpt": "osque was constructed by  or under the orders of Babur or that it was constructed in 1528. The finding on   PART G  100  point 1 is also contrary to the specific observation that Justice S U Khan was in  agreement with the decision of Justice Sudhir Agarwal in regard to the lack of  authenticity of the inscriptions.   (ii)  Justice Sudhir Agarwal  Justice Sudhir Agarwal held:  \u20151679... it is difficult to record a finding that the building in  dispute was constructed in 1528 \u2026"
+        },
+        {
+          "chunk_id": "28b74ca6-df0e-48ae-912d-2351545a4570",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "158",
+          "excerpt": "osque was constructed by  or under the orders of Babur or that it was constructed in 1528. The finding on   PART G  100  point 1 is also contrary to the specific observation that Justice S U Khan was in  agreement with the decision of Justice Sudhir Agarwal in regard to the lack of  authenticity of the inscriptions.   (ii)  Justice Sudhir Agarwal  Justice Sudhir Agarwal held:  \u20151679... it is difficult to record a finding that the building in  dispute was constructed in 1528 \u2026"
+        },
+        {
+          "chunk_id": "dd8e5863-c333-41c6-978f-fbe7283ae1f3",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "158",
+          "excerpt": "osque was constructed by  or under the orders of Babur or that it was constructed in 1528. The finding on   PART G  100  point 1 is also contrary to the specific observation that Justice S U Khan was in  agreement with the decision of Justice Sudhir Agarwal in regard to the lack of  authenticity of the inscriptions.   (ii)  Justice Sudhir Agarwal  Justice Sudhir Agarwal held:  \u20151679... it is difficult to record a finding that the building in  dispute was constructed in 1528 \u2026"
+        },
+        {
+          "chunk_id": "d2c88eb4-092e-4585-aac2-3ef27c6cfc80",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "157",
+          "excerpt": "d judge held that the inscriptions on the mosque as  translated by Fuhrer, Beveridge and Z A Desai were not authentic and hence,  on the basis of these inscriptions alone, it could not be held either that the  disputed building was constructed by or under the orders of Babur or that it was  constructed in 1528. Justice S U Khan specifically observed that:  \u2015In this regard detailed reasons have been given by my  learned brother S. Agarwal, J. with which I fully agree\u2016.  Howev\u2026"
+        },
+        {
+          "chunk_id": "84352598-1fe2-40f0-8cfd-05bf9cf25661",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "157",
+          "excerpt": "d judge held that the inscriptions on the mosque as  translated by Fuhrer, Beveridge and Z A Desai were not authentic and hence,  on the basis of these inscriptions alone, it could not be held either that the  disputed building was constructed by or under the orders of Babur or that it was  constructed in 1528. Justice S U Khan specifically observed that:  \u2015In this regard detailed reasons have been given by my  learned brother S. Agarwal, J. with which I fully agree\u2016.  Howev\u2026"
+        },
+        {
+          "chunk_id": "1c77f311-591b-4299-b796-cc867649b100",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "157",
+          "excerpt": "d judge held that the inscriptions on the mosque as  translated by Fuhrer, Beveridge and Z A Desai were not authentic and hence,  on the basis of these inscriptions alone, it could not be held either that the  disputed building was constructed by or under the orders of Babur or that it was  constructed in 1528. Justice S U Khan specifically observed that:  \u2015In this regard detailed reasons have been given by my  learned brother S. Agarwal, J. with which I fully agree\u2016.  Howev\u2026"
+        },
+        {
+          "chunk_id": "4ea2b2ac-8a3b-470c-b652-58fcc3ea1308",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "159",
+          "excerpt": "ction took  place, we are refraining from recording any positive finding on  this aspect except that the building in dispute, to our mind,  may have been constructed much later than the reign of  Emperor Babar and the inscriptions were fixed further  thereafter and that is why there have occurred certain  discrepancies about the name of the person concerned as  also the period. The possibility of change, alteration or  manipulation in the inscriptions cannot be ruled out.\u2016  \u2026"
+        }
+      ],
+      "agentic_retrieved_ids": [
+        "4b372315-62fa-4136-bf73-a9599abfd190",
+        "d169f270-86bb-47d4-b48f-a5e42640ce75",
+        "0d4be8ad-02a6-4b32-9a2f-ad9c1b5dc4a9",
+        "8c654d28-a394-4dd8-a9a1-fd6a2c61432c",
+        "28b74ca6-df0e-48ae-912d-2351545a4570",
+        "dd8e5863-c333-41c6-978f-fbe7283ae1f3",
+        "84352598-1fe2-40f0-8cfd-05bf9cf25661",
+        "d2c88eb4-092e-4585-aac2-3ef27c6cfc80",
+        "1c77f311-591b-4299-b796-cc867649b100",
+        "4ea2b2ac-8a3b-470c-b652-58fcc3ea1308"
+      ],
+      "agentic_recall_hit": true,
+      "agentic_retrieval_chunks": [
+        {
+          "chunk_id": "4b372315-62fa-4136-bf73-a9599abfd190",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "181",
+          "excerpt": "lectively relied upon certain aspects of the  Hadees without reading the religious texts in their context and as a whole.  74.  Justice Sudhir Agarwal observed that Babur, as the Emperor, had absolute  power as an independent sovereign:  \u20153389\u2026The position of Babar, in our view, was that of  independent sovereign, Sole Monarch, having paramount  power. It was supreme, uncontrollable and absolute, not  answerable to anyone. Whether invader or anything else, the  fact remains \u2026"
+        },
+        {
+          "chunk_id": "d169f270-86bb-47d4-b48f-a5e42640ce75",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "181",
+          "excerpt": "lectively relied upon certain aspects of the  Hadees without reading the religious texts in their context and as a whole.  74.  Justice Sudhir Agarwal observed that Babur, as the Emperor, had absolute  power as an independent sovereign:  \u20153389\u2026The position of Babar, in our view, was that of  independent sovereign, Sole Monarch, having paramount  power. It was supreme, uncontrollable and absolute, not  answerable to anyone. Whether invader or anything else, the  fact remains \u2026"
+        },
+        {
+          "chunk_id": "0d4be8ad-02a6-4b32-9a2f-ad9c1b5dc4a9",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "181",
+          "excerpt": "lectively relied upon certain aspects of the  Hadees without reading the religious texts in their context and as a whole.  74.  Justice Sudhir Agarwal observed that Babur, as the Emperor, had absolute  power as an independent sovereign:  \u20153389\u2026The position of Babar, in our view, was that of  independent sovereign, Sole Monarch, having paramount  power. It was supreme, uncontrollable and absolute, not  answerable to anyone. Whether invader or anything else, the  fact remains \u2026"
+        },
+        {
+          "chunk_id": "8c654d28-a394-4dd8-a9a1-fd6a2c61432c",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "158",
+          "excerpt": "osque was constructed by  or under the orders of Babur or that it was constructed in 1528. The finding on   PART G  100  point 1 is also contrary to the specific observation that Justice S U Khan was in  agreement with the decision of Justice Sudhir Agarwal in regard to the lack of  authenticity of the inscriptions.   (ii)  Justice Sudhir Agarwal  Justice Sudhir Agarwal held:  \u20151679... it is difficult to record a finding that the building in  dispute was constructed in 1528 \u2026"
+        },
+        {
+          "chunk_id": "28b74ca6-df0e-48ae-912d-2351545a4570",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "158",
+          "excerpt": "osque was constructed by  or under the orders of Babur or that it was constructed in 1528. The finding on   PART G  100  point 1 is also contrary to the specific observation that Justice S U Khan was in  agreement with the decision of Justice Sudhir Agarwal in regard to the lack of  authenticity of the inscriptions.   (ii)  Justice Sudhir Agarwal  Justice Sudhir Agarwal held:  \u20151679... it is difficult to record a finding that the building in  dispute was constructed in 1528 \u2026"
+        },
+        {
+          "chunk_id": "dd8e5863-c333-41c6-978f-fbe7283ae1f3",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "158",
+          "excerpt": "osque was constructed by  or under the orders of Babur or that it was constructed in 1528. The finding on   PART G  100  point 1 is also contrary to the specific observation that Justice S U Khan was in  agreement with the decision of Justice Sudhir Agarwal in regard to the lack of  authenticity of the inscriptions.   (ii)  Justice Sudhir Agarwal  Justice Sudhir Agarwal held:  \u20151679... it is difficult to record a finding that the building in  dispute was constructed in 1528 \u2026"
+        },
+        {
+          "chunk_id": "84352598-1fe2-40f0-8cfd-05bf9cf25661",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "157",
+          "excerpt": "d judge held that the inscriptions on the mosque as  translated by Fuhrer, Beveridge and Z A Desai were not authentic and hence,  on the basis of these inscriptions alone, it could not be held either that the  disputed building was constructed by or under the orders of Babur or that it was  constructed in 1528. Justice S U Khan specifically observed that:  \u2015In this regard detailed reasons have been given by my  learned brother S. Agarwal, J. with which I fully agree\u2016.  Howev\u2026"
+        },
+        {
+          "chunk_id": "d2c88eb4-092e-4585-aac2-3ef27c6cfc80",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "157",
+          "excerpt": "d judge held that the inscriptions on the mosque as  translated by Fuhrer, Beveridge and Z A Desai were not authentic and hence,  on the basis of these inscriptions alone, it could not be held either that the  disputed building was constructed by or under the orders of Babur or that it was  constructed in 1528. Justice S U Khan specifically observed that:  \u2015In this regard detailed reasons have been given by my  learned brother S. Agarwal, J. with which I fully agree\u2016.  Howev\u2026"
+        },
+        {
+          "chunk_id": "1c77f311-591b-4299-b796-cc867649b100",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "157",
+          "excerpt": "d judge held that the inscriptions on the mosque as  translated by Fuhrer, Beveridge and Z A Desai were not authentic and hence,  on the basis of these inscriptions alone, it could not be held either that the  disputed building was constructed by or under the orders of Babur or that it was  constructed in 1528. Justice S U Khan specifically observed that:  \u2015In this regard detailed reasons have been given by my  learned brother S. Agarwal, J. with which I fully agree\u2016.  Howev\u2026"
+        },
+        {
+          "chunk_id": "4ea2b2ac-8a3b-470c-b652-58fcc3ea1308",
+          "document_title": "36350_2010_1_1502_18205_Judgement_09-Nov-2019.pdf",
+          "chunk_index": "159",
+          "excerpt": "ction took  place, we are refraining from recording any positive finding on  this aspect except that the building in dispute, to our mind,  may have been constructed much later than the reign of  Emperor Babar and the inscriptions were fixed further  thereafter and that is why there have occurred certain  discrepancies about the name of the person concerned as  also the period. The possibility of change, alteration or  manipulation in the inscriptions cannot be ruled out.\u2016  \u2026"
+        }
+      ],
+      "agentic_trace": [
+        "plan",
+        "retrieve",
+        "grade",
+        "generate"
+      ]
+    }
+  ],
+  "methodology": [
+    "Recall@k: at least one gold chunk id appears in the top-k retrieved chunk ids.",
+    "Basic path: one embedding of the user question; dense top-k only.",
+    "Agentic path: LangGraph may plan/rewrite queries and merge retrieval before answering.",
+    "Side-by-side excerpts show retrieved chunk text (context for the LLM), not the final generated answer.",
+    "Agentic is not always better \u2014 compare excerpts and recall; sometimes both paths retrieve the same chunks."
+  ]
+}

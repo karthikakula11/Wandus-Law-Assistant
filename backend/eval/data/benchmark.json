@@ -1,0 +1,17 @@
+{
+  "benchmark_version": 2,
+  "top_k": 10,
+  "description": "Gold UUIDs from Postgres (36350 judgment). Q2 gold matches a chunk that dense search returns for the Babur question (avoids duplicate-row UUID mismatch).",
+  "items": [
+    {
+      "id": "sc_civil_appeal_header",
+      "question": "Were Civil Appeal Nos 10866-10867 of 2010 filed in the Supreme Court of India, and what jurisdiction is stated in the opening of the judgment?",
+      "gold_chunk_ids": ["7ae5f678-5c8c-4625-958f-5b84a5bc6438"]
+    },
+    {
+      "id": "babur_justice_agarwal",
+      "question": "What did Justice Sudhir Agarwal observe about Babur as Emperor in this judgment?",
+      "gold_chunk_ids": ["0d4be8ad-02a6-4b32-9a2f-ad9c1b5dc4a9"]
+    }
+  ]
+}

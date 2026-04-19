@@ -1,0 +1,12 @@
+.env
+.venv
+backend/.venv
+frontend/node_modules
+frontend/dist
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Local course clone (nested git repo — keep out of this remote)
+reference/
