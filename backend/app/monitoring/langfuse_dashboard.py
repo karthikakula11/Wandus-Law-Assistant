@@ -6,7 +6,7 @@ Langfuse cost/token dashboard (TalentVibe-style).
   and cost (same approach as fix_langfuse / TalentVibe monitoring API).
 
 Optional ``session_id`` filters to one Langfuse session; omit for **project-wide** totals
-(Pintu has no company_id — each chat uses a random session UUID unless you pass a scope).
+(Wandus has no company_id — each chat uses a random session UUID unless you pass a scope).
 """
 
 from __future__ import annotations

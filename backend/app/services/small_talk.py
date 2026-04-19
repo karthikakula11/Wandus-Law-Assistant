@@ -1,5 +1,5 @@
 """
-Route short conversational / meta questions to general chat so Pintu feels like a bot,
+Route short conversational / meta questions to general chat so Wandus feels like a bot,
 not a strict legal search over random retrieved chunks.
 """
 

@@ -42,7 +42,7 @@ export function EvalMetricsPage({ onBack }: Props) {
     <div className="app-shell usage-dashboard-shell">
       <header className="app-header">
         <div className="brand">
-          <div className="avatar-pintu" aria-hidden>
+          <div className="avatar-wandus" aria-hidden>
             ✦
           </div>
           <div className="brand-text">
@@ -61,8 +61,8 @@ export function EvalMetricsPage({ onBack }: Props) {
         <p className="usage-dashboard-lede">
           Each <strong>document-grounded</strong> reply logs a <strong>retrieval confidence</strong> score
           (from best dense match). We compare the last <strong>7 days</strong> to the previous{" "}
-          <strong>7 days</strong> with a <strong>Kolmogorov–Smirnov</strong> test (TalentVibe-style on{" "}
-          <strong>live</strong> samples). This measures <em>distribution shift</em>, not legal correctness.
+          <strong>7 days</strong> with a <strong>Kolmogorov–Smirnov</strong> test on{" "}
+          <strong>live</strong> samples. This measures <em>distribution shift</em>, not legal correctness.
         </p>
 
         {loading && <p className="usage-dashboard-status">Loading…</p>}
@@ -74,7 +74,7 @@ export function EvalMetricsPage({ onBack }: Props) {
 
         {!loading && !error && data && (
           <>
-            <div className="drift-detection-card drift-detection-card--pintu">
+            <div className="drift-detection-card drift-detection-card--wandus">
               <h2 className="usage-section-title" style={{ marginTop: 0 }}>
                 Status
               </h2>

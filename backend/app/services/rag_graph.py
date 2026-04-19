@@ -461,7 +461,7 @@ def _agentic_runnable_config(
     }
     return build_langgraph_run_config(
         base,
-        trace_name="pintu-agentic-rag",
+        trace_name="wandus-agentic-rag",
     )
 
 

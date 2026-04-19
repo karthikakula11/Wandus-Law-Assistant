@@ -69,7 +69,7 @@ class RequestIdMiddleware(BaseHTTPMiddleware):
 def create_app() -> FastAPI:
     get_settings()
     app = FastAPI(
-        title="Pintu Law RAG API",
+        title="Wandus Law RAG API",
         version="0.1.0",
         lifespan=lifespan,
     )

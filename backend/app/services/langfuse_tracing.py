@@ -66,7 +66,7 @@ def openai_trace_kwargs(*, name: str) -> dict[str, Any]:
 def build_langgraph_run_config(
     base: "RunnableConfig",
     *,
-    trace_name: str = "pintu-agentic-rag",
+    trace_name: str = "wandus-agentic-rag",
 ) -> "RunnableConfig":
     """
     Merge Langfuse ``CallbackHandler``, ``run_name``, and metadata for LangGraph.
@@ -87,7 +87,7 @@ def build_langgraph_run_config(
     handler = CallbackHandler()
     meta: dict[str, Any] = {
         "langfuse_trace_name": trace_name,
-        "langfuse_tags": ["pintu", "law-chatbot", "agentic-rag"],
+        "langfuse_tags": ["wandus", "law-chatbot", "agentic-rag"],
     }
     sid = get_request_session_id()
     if sid:

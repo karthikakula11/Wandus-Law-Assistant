@@ -52,7 +52,7 @@ FastAPI backend with **PostgreSQL + pgvector**, OpenAI embeddings and chat, opti
 
 ### Memory vs ChatGPT
 
-| | **Pintu (this app)** | **ChatGPT** |
+| | **Wandus (this app)** | **ChatGPT** |
 |--|----------------------|-------------|
 | **Where history lives** | Browser `localStorage` + each request sends recent turns to the API | OpenAI servers, tied to your account |
 | **Cross-device** | No (this browser only) | Yes when logged in |

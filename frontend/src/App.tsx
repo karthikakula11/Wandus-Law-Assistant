@@ -25,7 +25,7 @@ import {
 } from "./chatStorage";
 import { fetchChatState, hasUserMessages, putChatState } from "./chatStateSync";
 import { resolveMemoryUserId } from "./memoryUserId";
-import { PintuMascot, type MascotMood } from "./PintuMascot";
+import { WandusMascot, type MascotMood } from "./WandusMascot";
 
 const API = "/api";
 
@@ -628,9 +628,9 @@ export function App() {
       <div className="chat-main">
       <header className="app-header">
         <div className="brand">
-          <PintuMascot mood={mascotMood} size="header" />
+          <WandusMascot mood={mascotMood} size="header" />
           <div className="brand-text">
-            <h1>Pintu</h1>
+            <h1>Wandus</h1>
             <p>Law assistant · gpt-4o-mini</p>
           </div>
         </div>
@@ -714,17 +714,17 @@ export function App() {
           {typing && (
             <div className="msg-row assistant">
               <div className="mini-avatar mini-avatar-mascot" aria-hidden>
-                <PintuMascot mood={mascotMood} size="inline" />
+                <WandusMascot mood={mascotMood} size="inline" />
               </div>
               <div className="msg-body">
-                <div className="bubble-meta">Pintu</div>
+                <div className="bubble-meta">Wandus</div>
                 {graphStep && (
                   <div className="graph-step-banner" role="status" aria-live="polite">
                     <span className="graph-step-dot" aria-hidden />
                     {graphNodeLabel(graphStep)}
                   </div>
                 )}
-                <div className="typing-bubble" aria-label="Pintu is typing">
+                <div className="typing-bubble" aria-label="Wandus is typing">
                   <div className="typing-dots">
                     <span />
                     <span />
@@ -759,7 +759,7 @@ export function App() {
             </button>
           </div>
           <p className="disclaimer">
-            Pintu answers law-related questions only; indexed text is used when relevant. Not legal advice.
+            Wandus answers law-related questions only; indexed text is used when relevant. Not legal advice.
           </p>
         </div>
       </div>
@@ -907,12 +907,12 @@ function MessageRow({ msg }: { msg: ChatMessage }) {
           Y
         </div>
       ) : (
-        <div className="mini-avatar mini-avatar-mascot" aria-hidden title="Pintu">
-          <PintuMascot mood="idle" size="inline" />
+        <div className="mini-avatar mini-avatar-mascot" aria-hidden title="Wandus">
+          <WandusMascot mood="idle" size="inline" />
         </div>
       )}
       <div className="msg-body">
-        {!isUser && <div className="bubble-meta">Pintu</div>}
+        {!isUser && <div className="bubble-meta">Wandus</div>}
         {isUser && <div className="bubble-meta">You</div>}
         {!isUser && msg.source && (
           <span className={`source-pill ${msg.source}`}>

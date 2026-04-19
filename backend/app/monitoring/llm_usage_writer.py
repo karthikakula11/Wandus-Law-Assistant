@@ -54,7 +54,7 @@ async def write_langfuse_usage_sync(
     total = max(0, tokens_in + tokens_out)
     body_trace: dict[str, Any] = {
         "id": trace_id,
-        "name": route or "pintu-llm",
+        "name": route or "wandus-llm",
         "metadata": metadata or {},
     }
     if session_id:

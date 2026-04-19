@@ -15,7 +15,7 @@ from app.services.openai_factory import get_async_openai_client
 
 router = APIRouter(prefix="/titles", tags=["titles"])
 
-_TITLE_SYSTEM = """You name conversation threads for **Pintu**, a law-study assistant (like ChatGPT sidebar titles).
+_TITLE_SYSTEM = """You name conversation threads for **Wandus**, a law-study assistant (like ChatGPT sidebar titles).
 
 **What the title must reflect**
 - The **substantive legal subject**: case / judgment / statute / issue the user is actually discussing — parties, dispute, court, remedy, limitation, title suit, etc.

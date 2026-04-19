@@ -6,12 +6,14 @@ export type StoredMessage = {
   source?: "documents" | "general";
 };
 
-const STORAGE_KEY = "pintu-chat-v2";
+const STORAGE_KEY = "wandus-chat-v2";
+/** Pre-rename key; migrated once on load. */
+const LEGACY_PINTU_V2_KEY = "pintu-chat-v2";
 const LEGACY_KEY = "pintu-chat-v1";
 
 /** Must match App welcome copy (single source). */
 export const WELCOME_CONTENT =
-  "Hi! I'm **Pintu** — I only help with **law and legal study**, including questions about **your uploaded laws** from **Upload file** when they match your question.\n\n" +
+  "Hi! I'm **Wandus** — I only help with **law and legal study**, including questions about **your uploaded laws** from **Upload file** when they match your question.\n\n" +
   "`I can speed-read your PDFs — I can't represent you in court. Not legal advice.`";
 
 /** Keep UI history bounded per thread (browser quota). */
@@ -109,26 +111,46 @@ function migrateLegacyV1(raw: string): ThreadsState | null {
   }
 }
 
+function normalizeLoadedV2(data: ThreadsState): ThreadsState | null {
+  if (data.v !== 2 || !Array.isArray(data.threads) || data.threads.length === 0) {
+    return null;
+  }
+  const active =
+    data.threads.some((t) => t.id === data.activeThreadId) && data.activeThreadId
+      ? data.activeThreadId
+      : data.threads[0].id;
+  return {
+    v: 2,
+    threads: data.threads.map((t) => ({
+      ...t,
+      messages: trimMessages(
+        (t.messages ?? []).filter((m) => m?.id && m?.role && m?.content)
+      ),
+    })),
+    activeThreadId: active,
+  };
+}
+
 export function loadThreadsState(): ThreadsState {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const data = JSON.parse(raw) as ThreadsState;
-      if (data.v === 2 && Array.isArray(data.threads) && data.threads.length > 0) {
-        const active =
-          data.threads.some((t) => t.id === data.activeThreadId) && data.activeThreadId
-            ? data.activeThreadId
-            : data.threads[0].id;
-        return {
-          v: 2,
-          threads: data.threads.map((t) => ({
-            ...t,
-            messages: trimMessages(
-              (t.messages ?? []).filter((m) => m?.id && m?.role && m?.content)
-            ),
-          })),
-          activeThreadId: active,
-        };
+      const normalized = normalizeLoadedV2(data);
+      if (normalized) return normalized;
+    }
+    const pintuV2 = localStorage.getItem(LEGACY_PINTU_V2_KEY);
+    if (pintuV2) {
+      const data = JSON.parse(pintuV2) as ThreadsState;
+      const normalized = normalizeLoadedV2(data);
+      if (normalized) {
+        saveThreadsState(normalized);
+        try {
+          localStorage.removeItem(LEGACY_PINTU_V2_KEY);
+        } catch {
+          /* ignore */
+        }
+        return normalized;
       }
     }
     const legacy = localStorage.getItem(LEGACY_KEY);

@@ -8,7 +8,7 @@
   --text: #f8fafc;
   --text-muted: #c4b5fd;
   --bubble-user: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
-  --bubble-pintu: linear-gradient(145deg, rgba(167, 139, 250, 0.25) 0%, rgba(232, 121, 249, 0.15) 100%);
+  --bubble-wandus: linear-gradient(145deg, rgba(167, 139, 250, 0.25) 0%, rgba(232, 121, 249, 0.15) 100%);
   --border: rgba(167, 139, 250, 0.35);
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   --radius: 1.25rem;
@@ -217,7 +217,7 @@ body {
   gap: 0.65rem;
 }
 
-.avatar-pintu {
+.avatar-wandus {
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -406,7 +406,7 @@ body {
 }
 
 .msg-row.assistant .bubble {
-  background: var(--bubble-pintu);
+  background: var(--bubble-wandus);
   border-color: var(--border);
   box-shadow: var(--shadow);
 }
@@ -459,7 +459,7 @@ body {
   align-items: center;
   gap: 0.35rem;
   padding: 0.85rem 1.1rem;
-  background: var(--bubble-pintu);
+  background: var(--bubble-wandus);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
@@ -1931,7 +1931,7 @@ body {
 }
 
 /* Retrieval drift page (KS on confidence samples) */
-.drift-detection-card--pintu {
+.drift-detection-card--wandus {
   margin-top: 0.75rem;
   padding: 1.1rem 1.15rem 1.2rem;
   border-radius: 0.85rem;
@@ -2018,67 +2018,67 @@ body {
   color: #fca5a5;
 }
 
-/* --- Pintu animated mascot --- */
-.pintu-mascot {
+/* --- Wandus animated mascot --- */
+.wandus-mascot {
   flex-shrink: 0;
   transform-origin: 50% 80%;
   transition: filter 0.25s ease;
 }
 
-.pintu-mascot--header {
+.wandus-mascot--header {
   filter: drop-shadow(0 4px 14px rgba(167, 139, 250, 0.45));
 }
 
-.pintu-mascot--inline {
+.wandus-mascot--inline {
   filter: drop-shadow(0 2px 8px rgba(167, 139, 250, 0.35));
 }
 
-.pintu-mascot--idle {
+.wandus-mascot--idle {
   animation: mascot-float 3s ease-in-out infinite;
 }
 
-.pintu-mascot--thinking {
+.wandus-mascot--thinking {
   animation: mascot-bob 0.55s ease-in-out infinite;
 }
 
-.pintu-mascot--thinking .pintu-mascot-antenna-ball {
+.wandus-mascot--thinking .wandus-mascot-antenna-ball {
   animation: mascot-antenna 0.45s ease-in-out infinite;
 }
 
-.pintu-mascot--thinking .pintu-mascot-eyes {
+.wandus-mascot--thinking .wandus-mascot-eyes {
   animation: mascot-eye-glance 1.2s ease-in-out infinite;
 }
 
-.pintu-mascot--happy {
+.wandus-mascot--happy {
   animation: mascot-happy-pop 0.85s ease 1;
 }
 
-.pintu-mascot--sad {
+.wandus-mascot--sad {
   animation: mascot-sad-tilt 2.8s ease-in-out 1;
   filter: drop-shadow(0 3px 10px rgba(100, 100, 120, 0.35));
 }
 
-.pintu-mascot-mouth-idle,
-.pintu-mascot-mouth-happy,
-.pintu-mascot-mouth-sad {
+.wandus-mascot-mouth-idle,
+.wandus-mascot-mouth-happy,
+.wandus-mascot-mouth-sad {
   opacity: 0;
   transition: opacity 0.2s ease;
 }
 
-.pintu-mascot--idle .pintu-mascot-mouth-idle,
-.pintu-mascot--thinking .pintu-mascot-mouth-idle {
+.wandus-mascot--idle .wandus-mascot-mouth-idle,
+.wandus-mascot--thinking .wandus-mascot-mouth-idle {
   opacity: 1;
 }
 
-.pintu-mascot--happy .pintu-mascot-mouth-happy {
+.wandus-mascot--happy .wandus-mascot-mouth-happy {
   opacity: 1;
 }
 
-.pintu-mascot--sad .pintu-mascot-mouth-sad {
+.wandus-mascot--sad .wandus-mascot-mouth-sad {
   opacity: 1;
 }
 
-.pintu-mascot--thinking .pintu-mascot-core {
+.wandus-mascot--thinking .wandus-mascot-core {
   animation: mascot-core-pulse 0.8s ease-in-out infinite;
 }
 

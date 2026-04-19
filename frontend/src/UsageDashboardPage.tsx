@@ -114,7 +114,7 @@ export function UsageDashboardPage({ onBack }: Props) {
     <div className="app-shell usage-dashboard-shell">
       <header className="app-header">
         <div className="brand">
-          <div className="avatar-pintu" aria-hidden>
+          <div className="avatar-wandus" aria-hidden>
             ✦
           </div>
           <div className="brand-text">

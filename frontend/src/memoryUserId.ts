@@ -1,6 +1,7 @@
 /** Stable opaque id for server-side long-term memory (localStorage + optional DB primary user). */
 
-const MEMORY_USER_KEY = "pintu-memory-user-id";
+const MEMORY_USER_KEY = "wandus-memory-user-id";
+const LEGACY_MEMORY_USER_KEY = "pintu-memory-user-id";
 const API = "/api";
 
 const KEY_RE = /^[a-zA-Z0-9_-]{8,64}$/;
@@ -11,7 +12,19 @@ const KEY_RE = /^[a-zA-Z0-9_-]{8,64}$/;
  */
 export async function resolveMemoryUserId(): Promise<string> {
   try {
-    const existing = localStorage.getItem(MEMORY_USER_KEY);
+    let existing = localStorage.getItem(MEMORY_USER_KEY);
+    if (!existing || !KEY_RE.test(existing)) {
+      const legacy = localStorage.getItem(LEGACY_MEMORY_USER_KEY);
+      if (legacy && KEY_RE.test(legacy)) {
+        try {
+          localStorage.setItem(MEMORY_USER_KEY, legacy);
+          localStorage.removeItem(LEGACY_MEMORY_USER_KEY);
+        } catch {
+          /* ignore */
+        }
+        existing = legacy;
+      }
+    }
     if (existing && KEY_RE.test(existing)) {
       return existing;
     }

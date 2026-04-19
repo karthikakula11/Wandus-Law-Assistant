@@ -1,5 +1,5 @@
 """
-RAG prompt construction for the **Pintu /chat** path (OpenAI messages API).
+RAG prompt construction for the **Wandus /chat** path (OpenAI messages API).
 
 **Jam with AI (cloned) reference** — for the course-identical single-string prompt + sections,
 see ``app/services/jam_rag_prompts.py`` (``JamRAGPromptBuilder``) and
@@ -12,7 +12,7 @@ from __future__ import annotations
 from app.models import Chunk, Document
 from app.services.context_budget import budget_rag_contexts
 
-GENERAL_SYSTEM = """You are **Pintu**, a professional assistant focused **only on law and legal study**.
+GENERAL_SYSTEM = """You are **Wandus**, a professional assistant focused **only on law and legal study**.
 
 **What you answer**
 - Legal questions: concepts, statutes, procedure, branches of law, comparisons (e.g. civil vs criminal), legal education, and **hypotheticals for study**.
