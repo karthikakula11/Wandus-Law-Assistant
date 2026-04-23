@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API = "/api";
+import { API } from "./apiBase";
 
 type PricingStatus = {
   source: string;

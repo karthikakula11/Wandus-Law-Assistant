@@ -1,6 +1,5 @@
 import type { ThreadsState } from "./chatStorage";
-
-const API = "/api";
+import { API } from "./apiBase";
 
 /** True if any thread has at least one user message (worth syncing to the server). */
 export function hasUserMessages(state: ThreadsState): boolean {

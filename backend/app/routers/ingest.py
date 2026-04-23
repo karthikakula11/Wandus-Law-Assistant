@@ -31,10 +31,10 @@ async def ingest_file(
     session: AsyncSession = Depends(get_session),
 ):
     name = (file.filename or "").strip().lower()
-    if not name.endswith(".pdf"):
+    if not (name.endswith(".pdf") or name.endswith(".txt")):
         raise HTTPException(
             status_code=400,
-            detail="Only PDF uploads are supported. Use a .pdf file.",
+            detail="Only PDF or plain UTF-8 .txt uploads are supported.",
         )
     raw = await file.read()
     try:

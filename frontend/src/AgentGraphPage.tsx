@@ -3,7 +3,7 @@ import { useEffect, useId, useMemo, useState } from "react";
 import { highlightAsciiForPath } from "./asciiPathHighlight";
 import { describeGradeBranches, GRAPH_NODE_LABELS, graphNodeLabel } from "./graphLabels";
 
-const API = "/api";
+import { API } from "./apiBase";
 
 type Props = {
   onBack: () => void;

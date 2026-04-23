@@ -26,8 +26,24 @@ import {
 import { fetchChatState, hasUserMessages, putChatState } from "./chatStateSync";
 import { resolveMemoryUserId } from "./memoryUserId";
 import { WandusMascot, type MascotMood } from "./WandusMascot";
+import { API } from "./apiBase";
 
-const API = "/api";
+/** When fetch() fails before HTTP (backend down, file:// page, wrong dev setup). */
+const API_SETUP_HINT =
+  "Start the API on port 8000 (from backend: .venv\\Scripts\\python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000), run npm run dev in frontend, and open http://127.0.0.1:5173 — not a saved HTML file.";
+
+function friendlyFetchError(e: unknown): string {
+  const raw = e instanceof Error ? e.message : String(e);
+  const l = raw.toLowerCase();
+  if (
+    l.includes("failed to fetch") ||
+    l.includes("networkerror") ||
+    l === "load failed"
+  ) {
+    return `${raw}. ${API_SETUP_HINT}`;
+  }
+  return raw;
+}
 
 type StreamEvent =
   | { event: "graph_step"; node?: string }
@@ -187,6 +203,8 @@ export function App() {
   const [lastRunPath, setLastRunPath] = useState<string[] | null>(null);
   const graphPathRef = useRef<string[]>([]);
   const [err, setErr] = useState<string | null>(null);
+  /** null = not checked yet; true = cannot reach API /health */
+  const [apiDown, setApiDown] = useState<boolean | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [ingestStatus, setIngestStatus] = useState("");
@@ -204,7 +222,7 @@ export function App() {
       const j = (await r.json()) as { documents?: IndexedDocument[] };
       setIndexedDocs(j.documents ?? []);
     } catch (e) {
-      setIndexedErr(e instanceof Error ? e.message : String(e));
+      setIndexedErr(friendlyFetchError(e));
       setIndexedDocs([]);
     } finally {
       setIndexedLoading(false);
@@ -228,7 +246,7 @@ export function App() {
         setIngestStatus(`Removed “${doc.title}” from your library.`);
         await refreshIndexedDocuments();
       } catch (e) {
-        setErr(String(e));
+        setErr(friendlyFetchError(e));
       } finally {
         setDeletingDocId(null);
       }
@@ -277,9 +295,29 @@ export function App() {
 
   useEffect(() => {
     if (!err) return;
-    const t = window.setTimeout(() => setErr(null), 6000);
+    const ms = err.length > 140 ? 16000 : 6000;
+    const t = window.setTimeout(() => setErr(null), ms);
     return () => window.clearTimeout(t);
   }, [err]);
+
+  /** Detect unreachable backend (common cause of "Failed to fetch"). */
+  useEffect(() => {
+    let cancelled = false;
+    const ping = async () => {
+      try {
+        const r = await fetch(`${API}/health`, { method: "GET" });
+        if (!cancelled) setApiDown(!r.ok);
+      } catch {
+        if (!cancelled) setApiDown(true);
+      }
+    };
+    void ping();
+    const id = window.setInterval(() => void ping(), 8000);
+    return () => {
+      cancelled = true;
+      window.clearInterval(id);
+    };
+  }, []);
 
   /** Load Recents from Postgres (or push local-only history once) keyed by ``memory_user_id``. */
   useEffect(() => {
@@ -422,8 +460,9 @@ export function App() {
     setErr(null);
     setBusy(true);
     setIngestStatus("");
-    if (!file.name.toLowerCase().endsWith(".pdf")) {
-      setErr("Only PDF files are supported. Please choose a .pdf file.");
+    const low = file.name.toLowerCase();
+    if (!low.endsWith(".pdf") && !low.endsWith(".txt")) {
+      setErr("Only PDF or plain text (.txt) files are supported.");
       setBusy(false);
       return;
     }
@@ -446,7 +485,7 @@ export function App() {
         },
       ]);
     } catch (e) {
-      setErr(String(e));
+      setErr(friendlyFetchError(e));
     } finally {
       setBusy(false);
     }
@@ -532,14 +571,15 @@ export function App() {
         void suggestThreadTitle(threadIdSnapshot, q, assistantContent, docTitles);
       }
     } catch (e) {
-      setErr(String(e));
+      setErr(friendlyFetchError(e));
       setMascotMoodTransient("sad");
       setMessages((prev) => [
         ...prev,
         {
           id: newId(),
           role: "assistant",
-          content: "Oops — I couldn't reach the server. Is the API running on port 8000?",
+          content:
+            "Oops — I couldn't reach the server. Is the API running on port 8000? (Use http://127.0.0.1:5173 with npm run dev.)",
         },
       ]);
     } finally {
@@ -626,6 +666,20 @@ export function App() {
       </nav>
 
       <div className="chat-main">
+        {apiDown === true && (
+          <div className="api-offline-banner" role="alert">
+            <strong>Backend not reachable.</strong> Start FastAPI on port 8000, then refresh. From{" "}
+            <code className="api-offline-banner-code">backend</code>:{" "}
+            <code className="api-offline-banner-code">
+              .venv\Scripts\python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+            </code>
+            . If the UI is on <code className="api-offline-banner-code">npm run preview</code> (port
+            4173), the proxy is configured; still ensure the API is running. Optional: create{" "}
+            <code className="api-offline-banner-code">frontend/.env.development</code> with{" "}
+            <code className="api-offline-banner-code">VITE_API_BASE=http://127.0.0.1:8000</code> to
+            bypass the proxy.
+          </div>
+        )}
       <header className="app-header">
         <div className="brand">
           <WandusMascot mood={mascotMood} size="header" />
@@ -867,13 +921,13 @@ export function App() {
 
             <section className="sidebar-panel sidebar-panel--upload" aria-labelledby="upload-heading">
               <h3 id="upload-heading" className="sidebar-panel-title">
-                Add PDF
+                Add PDF / text
               </h3>
               <label className="upload-dropzone">
                 <input
                   id="sb-file"
                   type="file"
-                  accept=".pdf,application/pdf"
+                  accept=".pdf,application/pdf,.txt,text/plain"
                   disabled={busy}
                   onChange={(e) => {
                     const f = e.target.files?.[0];
@@ -882,7 +936,7 @@ export function App() {
                   }}
                 />
                 <span className="upload-dropzone-text">
-                  <strong>Choose a PDF</strong>
+                  <strong>Choose a PDF or .txt</strong>
                   <span>or drop it here (browser permitting)</span>
                 </span>
               </label>

@@ -1,8 +1,9 @@
 /** Stable opaque id for server-side long-term memory (localStorage + optional DB primary user). */
 
+import { API } from "./apiBase";
+
 const MEMORY_USER_KEY = "wandus-memory-user-id";
 const LEGACY_MEMORY_USER_KEY = "pintu-memory-user-id";
-const API = "/api";
 
 const KEY_RE = /^[a-zA-Z0-9_-]{8,64}$/;
 

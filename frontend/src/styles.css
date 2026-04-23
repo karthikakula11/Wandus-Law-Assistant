@@ -2178,3 +2178,26 @@ body {
     max-width: 92%;
   }
 }
+
+.api-offline-banner {
+  margin: 0 0 0.75rem 0;
+  padding: 0.65rem 0.85rem;
+  background: rgba(127, 29, 29, 0.55);
+  border: 1px solid rgba(248, 113, 113, 0.45);
+  border-radius: var(--radius);
+  color: #fecaca;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.api-offline-banner strong {
+  color: #fff;
+}
+
+.api-offline-banner-code {
+  font-size: 0.78rem;
+  padding: 0.1em 0.35em;
+  border-radius: 0.35rem;
+  background: rgba(0, 0, 0, 0.25);
+  word-break: break-all;
+}

@@ -1,4 +1,4 @@
-const API = "/api";
+import { API } from "./apiBase";
 
 export type DriftData = {
   drift_detected: boolean;
